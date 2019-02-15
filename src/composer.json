@@ -1,0 +1,22 @@
+{
+    "name": "survivorbat/src",
+    "authors": [
+        {
+            "name": "survivorbat",
+            "email": "djbatcat@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": { "": "src/" }
+    },
+    "require": {
+        "php": "^7.1"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^7.0",
+        "codacy/coverage": "^1.4",
+        "phpunit/php-code-coverage": "^6.0",
+        "friendsofphp/php-cs-fixer": "^2.14",
+        "composer/xdebug-handler": "^1.3"
+    }
+}

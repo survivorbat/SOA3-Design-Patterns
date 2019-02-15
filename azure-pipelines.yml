@@ -1,0 +1,38 @@
+# PHP
+# Test and package your PHP project.
+# Add steps that run tests, save build artifacts, deploy, and more:
+# https://docs.microsoft.com/azure/devops/pipelines/languages/php
+
+trigger:
+- master
+
+pool:
+  vmImage: 'Ubuntu-16.04'
+
+variables:
+  phpVersion: 7.2
+  group: Default
+
+steps:
+- script: |
+    sudo apt install makefile
+    sudo apt install xdebug
+    sudo apt install php5-curl
+    sudo apt-get install php-curl
+    sudo update-alternatives --set php /usr/bin/php$(phpVersion)
+    sudo update-alternatives --set phar /usr/bin/phar$(phpVersion)
+    sudo update-alternatives --set phpdbg /usr/bin/phpdbg$(phpVersion)
+    sudo update-alternatives --set php-cgi /usr/bin/php-cgi$(phpVersion)
+    sudo update-alternatives --set phar.phar /usr/bin/phar.phar$(phpVersion)
+    php -version
+  displayName: 'Use PHP version $(phpVersion)'
+
+- script: composer install --no-interaction
+  workingDirectory: "$(Build.SourcesDirectory)/src"
+  displayName: "Running composer install"
+
+- script: src/vendor/phpunit/phpunit/phpunit src/tests --coverage-clover  ./src/coverage.xml -c ./src/phpunit.xml
+  displayName: "Running PHPUnit tests"
+
+- script: src/vendor/bin/codacycoverage clover ./src/coverage.xml
+  displayName: Sending code coverage to Codacy
