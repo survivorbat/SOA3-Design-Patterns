@@ -2,7 +2,7 @@
 
 namespace DomainBundle\Entity;
 
-class EmptyFile
+class BacklogTask
 {
 
 }
