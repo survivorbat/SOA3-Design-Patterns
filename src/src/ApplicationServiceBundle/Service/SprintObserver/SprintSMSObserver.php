@@ -2,9 +2,10 @@
 
 namespace ApplicationServiceBundle\Entity\SprintObserver;
 
+use SplObserver;
 use SplSubject;
 
-class SprintSMSObserver implements \SplObserver
+class SprintSMSObserver implements SplObserver
 {
     /**
      * @param SplSubject $subject
