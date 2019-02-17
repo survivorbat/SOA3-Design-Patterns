@@ -14,6 +14,8 @@ class Project
     private $users;
     /** @var Pipeline[]|array $pipelines */
     private $pipelines;
+    /** @var Repository[]|array $repositories */
+    private $repositories;
 
     /**
      * @return array|Sprint[]
@@ -102,6 +104,24 @@ class Project
     public function setPipelines($pipelines): Project
     {
         $this->pipelines = $pipelines;
+        return $this;
+    }
+
+    /**
+     * @return array|Repository[]
+     */
+    public function getRepositories(): array
+    {
+        return $this->repositories;
+    }
+
+    /**
+     * @param array|Repository[] $repositories
+     * @return Project
+     */
+    public function setRepositories(array $repositories): Project
+    {
+        $this->repositories = $repositories;
         return $this;
     }
 }

@@ -1,5 +1,8 @@
 # SOFA3 Design Patterns
 
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/42fa57f02a9645be87b81162fabf3471)](https://app.codacy.com/app/survivorbat/SOA3-Design-Patterns?utm_source=github.com&utm_medium=referral&utm_content=survivorbat/SOA3-Design-Patterns&utm_campaign=Badge_Grade_Settings)
+
+
 A school assignment in which we had to create a domain model using design patterns taught in class
 
 ## Prerequisites
