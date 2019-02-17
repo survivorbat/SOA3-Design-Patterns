@@ -1,10 +1,10 @@
 <?php
 
-namespace DomainBundle\Tests;
+namespace DomainBundle\Entity;
 
 use PHPUnit\Framework\TestCase;
 
-class TestTest extends TestCase
+class UserTest extends TestCase
 {
     public function emptyTest(): void
     {

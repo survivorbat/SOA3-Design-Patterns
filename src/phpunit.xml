@@ -12,8 +12,7 @@
 
     <testsuites>
         <testsuite name="Project Test Suite">
-            <directory>DomainBundle/Tests</directory>
-            <directory>ServiceBundle/Tests</directory>
+            <directory>tests</directory>
         </testsuite>
     </testsuites>
 
