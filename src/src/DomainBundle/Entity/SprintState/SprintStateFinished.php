@@ -2,7 +2,7 @@
 
 namespace DomainBundle\Entity\SprintState;
 
-class SprintStateFinished implements SprintState
+class SprintStateFinished extends SprintState
 {
 
 }

@@ -2,7 +2,13 @@
 
 namespace DomainBundle\Entity\SprintState;
 
-interface SprintState
+abstract class SprintState
 {
-
+    /**
+     * @return bool
+     */
+    public function isEditable(): bool
+    {
+        return false;
+    }
 }
