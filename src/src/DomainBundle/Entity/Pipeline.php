@@ -2,6 +2,6 @@
 
 namespace DomainBundle\Entity;
 
-class BacklogTask extends BacklogComponent
+class Pipeline
 {
 }
