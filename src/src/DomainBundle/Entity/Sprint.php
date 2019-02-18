@@ -142,11 +142,17 @@ class Sprint implements SplSubject, \Serializable
         return $this;
     }
 
+    /**
+     * @param BacklogComponent $backlogComponent
+     */
     public function addBacklogComponent(BacklogComponent $backlogComponent): void
     {
         $this->backlogComponents[] = $backlogComponent;
     }
 
+    /**
+     * @return int
+     */
     public function backlogItemsToDo(): int
     {
         return count($this->backlogComponents);

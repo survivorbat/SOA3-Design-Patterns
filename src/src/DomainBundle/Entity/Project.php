@@ -2,20 +2,26 @@
 
 namespace DomainBundle\Entity;
 
+use DomainBundle\Entity\DevOps\Pipeline;
+use DomainBundle\Entity\Forum\ForumTopic;
+use DomainBundle\Entity\SCM\Repository;
+
 class Project
 {
     /** @var string|null $id */
     private $id;
     /** @var Sprint[]|array $sprints */
-    private $sprints;
+    private $sprints = [];
     /** @var BacklogComponent[]|array $backlogItems */
-    private $backlogItems;
+    private $backlogItems = [];
     /** @var User[]|array $users */
-    private $users;
+    private $users = [];
     /** @var Pipeline[]|array $pipelines */
-    private $pipelines;
+    private $pipelines = [];
     /** @var Repository[]|array $repositories */
-    private $repositories;
+    private $repositories = [];
+    /** @var ForumTopic[]|array $forumTopics */
+    private $forumTopics = [];
 
     /**
      * @return array|Sprint[]
@@ -122,6 +128,42 @@ class Project
     public function setRepositories(array $repositories): Project
     {
         $this->repositories = $repositories;
+        return $this;
+    }
+
+    /**
+     * @return array|BacklogComponent[]
+     */
+    public function getBacklogItems()
+    {
+        return $this->backlogItems;
+    }
+
+    /**
+     * @param array|BacklogComponent[] $backlogItems
+     * @return Project
+     */
+    public function setBacklogItems($backlogItems)
+    {
+        $this->backlogItems = $backlogItems;
+        return $this;
+    }
+
+    /**
+     * @return array|ForumTopic[]
+     */
+    public function getForumTopics()
+    {
+        return $this->forumTopics;
+    }
+
+    /**
+     * @param array|ForumTopic[] $forumTopics
+     * @return Project
+     */
+    public function setForumTopics($forumTopics)
+    {
+        $this->forumTopics = $forumTopics;
         return $this;
     }
 }

@@ -1,6 +1,6 @@
 <?php
 
-namespace DomainBundle\Entity;
+namespace DomainBundle\Entity\SCM;
 
 use http\Exception\BadMethodCallException;
 
@@ -16,8 +16,10 @@ class Repository
     private $websiteUrl = "";
     /** @var string $type */
     private $type;
-    /** @var array $files */
-    private $files = [];
+    /** @var RepositoryBranch[]|array $branches */
+    private $branches = [];
+    /** @var RepositoryBranch|null $defaultBranch */
+    private $defaultBranch;
 
     /**
      * @return string
@@ -132,6 +134,42 @@ class Repository
     public function setFiles(array $files): Repository
     {
         $this->files = $files;
+        return $this;
+    }
+
+    /**
+     * @return array|RepositoryBranch[]
+     */
+    public function getBranches()
+    {
+        return $this->branches;
+    }
+
+    /**
+     * @param array|RepositoryBranch[] $branches
+     * @return Repository
+     */
+    public function setBranches($branches)
+    {
+        $this->branches = $branches;
+        return $this;
+    }
+
+    /**
+     * @return RepositoryBranch|null
+     */
+    public function getDefaultBranch(): ?RepositoryBranch
+    {
+        return $this->defaultBranch;
+    }
+
+    /**
+     * @param RepositoryBranch|null $defaultBranch
+     * @return Repository
+     */
+    public function setDefaultBranch(?RepositoryBranch $defaultBranch): Repository
+    {
+        $this->defaultBranch = $defaultBranch;
         return $this;
     }
 }

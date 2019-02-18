@@ -37,4 +37,18 @@ class BacklogItem extends BacklogComponent
     {
         return $this->subItems[$index] ?? null;
     }
+
+    /**
+     * @return bool
+     */
+    public function isFinished(): bool
+    {
+        foreach ($this->subItems as $subItem) {
+            if (!$subItem->isFinished()) {
+                return false;
+            }
+        }
+
+        return true;
+    }
 }
