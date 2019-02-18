@@ -9,7 +9,7 @@ use InfrastructureBundle\Repository\GitRepositoryRepository;
 use InfrastructureBundle\Repository\SVNRepositoryRepository;
 use Symfony\Component\OptionsResolver\Exception\InvalidArgumentException;
 
-class ConcreteRepositoryRepositoryRepositoryFactory implements RepositoryRepositoryFactory
+class ConcreteRepositoryRepositoryFactory implements RepositoryRepositoryFactory
 {
     /**
      * @param string $type
