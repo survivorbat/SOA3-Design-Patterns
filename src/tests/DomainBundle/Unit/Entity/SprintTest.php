@@ -1,23 +1,11 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: gerben
- * Date: 17-2-19
- * Time: 21:22
- */
 
 namespace tests\DomainBundle\Unit;
 
-
-use ApplicationServiceBundle\Entity\SprintObserver\SprintEmailObserver;
 use ApplicationServiceBundle\Service\ExportHandler\JSONExportHandler;
 use DomainBundle\Entity\Sprint;
 use PHPUnit\Framework\TestCase;
 
-/**
- * Class SprintTest
- * @package DomainBundle\Entity
- */
 class SprintTest extends TestCase
 {
     /** @var Sprint $sprint */
