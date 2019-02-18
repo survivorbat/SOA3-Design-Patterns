@@ -1,10 +1,10 @@
 <?php
 
-namespace ApplicationServiceBundle\Service\RepositoryService;
+namespace DomainServiceBundle\Repository;
 
-use DomainBundle\Entity\Repository;
+use DomainBundle\Entity\SCM\Repository;
 
-interface RepositoryService
+interface RepositoryRepositoryInterface
 {
     /**
      * @return Repository[]|array

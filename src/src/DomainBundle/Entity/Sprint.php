@@ -13,7 +13,7 @@ class Sprint implements SplSubject, \Serializable
     private $id;
     /** @var SplObserver[]|array $sprintObservers */
     private $sprintObservers = [];
-    /** @var EntityExportHandler $exportHandler */
+    /** @var EntityExportHandlerInterface $exportHandler */
     private $exportHandler;
     /** @var SprintState $currentState */
     private $currentState;
@@ -22,9 +22,9 @@ class Sprint implements SplSubject, \Serializable
 
     /**
      * Sprint constructor.
-     * @param EntityExportHandler $exportHandler
+     * @param EntityExportHandlerInterface $exportHandler
      */
-    public function __construct(EntityExportHandler $exportHandler)
+    public function __construct(EntityExportHandlerInterface $exportHandler)
     {
         $this->exportHandler = $exportHandler;
     }
@@ -81,18 +81,18 @@ class Sprint implements SplSubject, \Serializable
     }
 
     /**
-     * @return EntityExportHandler
+     * @return EntityExportHandlerInterface
      */
-    public function getExportHandler(): EntityExportHandler
+    public function getExportHandler(): EntityExportHandlerInterface
     {
         return $this->exportHandler;
     }
 
     /**
-     * @param EntityExportHandler $exportHandler
+     * @param EntityExportHandlerInterface $exportHandler
      * @return Sprint
      */
-    public function setExportHandler(EntityExportHandler $exportHandler): Sprint
+    public function setExportHandler(EntityExportHandlerInterface $exportHandler): Sprint
     {
         $this->exportHandler = $exportHandler;
         return $this;

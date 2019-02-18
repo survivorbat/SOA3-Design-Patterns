@@ -2,16 +2,28 @@
 
 namespace ApplicationServiceBundle\Service\NotifyHandler;
 
-abstract class NotifyHandler
+use DomainBundle\Entity\NotifyHandlerInterface;
+
+abstract class NotifyHandler implements NotifyHandlerInterface
 {
     /**
+     * @param string $message
      * @return void
      */
-    final public function sendMessage(): void
+    final public function sendMessage(string $message): void
     {
+        $this->collectReceiverData();
         $this->composeMessageContent();
         $this->composeMessage();
         $this->deliverMessage();
+    }
+
+    /**
+     * @return void
+     */
+    final protected function collectReceiverData(): void
+    {
+        // TODO: Implement collect
     }
 
     /**

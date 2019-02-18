@@ -2,7 +2,7 @@
 
 namespace DomainBundle\Entity;
 
-interface EntityExportHandler
+interface EntityExportHandlerInterface
 {
     /**
      * @param \Serializable $sprint

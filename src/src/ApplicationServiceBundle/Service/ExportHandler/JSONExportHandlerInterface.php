@@ -3,9 +3,9 @@
 namespace ApplicationServiceBundle\Service\ExportHandler;
 
 use DomainBundle\Entity\Sprint;
-use DomainBundle\Entity\EntityExportHandler;
+use DomainBundle\Entity\EntityExportHandlerInterface;
 
-class JSONExportHandler implements EntityExportHandler
+class JSONExportHandlerInterface implements EntityExportHandlerInterface
 {
     /**
      * @param \Serializable $sprint

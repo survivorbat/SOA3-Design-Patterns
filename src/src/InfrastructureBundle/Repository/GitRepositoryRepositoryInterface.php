@@ -2,10 +2,10 @@
 
 namespace InfrastructureBundle\Repository;
 
-use DomainBundle\Entity\Repository;
-use DomainServiceBundle\Repository\RepositoryRepository;
+use DomainBundle\Entity\SCM\Repository;
+use DomainServiceBundle\Repository\RepositoryRepositoryInterface;
 
-class GitRepositoryRepository implements RepositoryRepository
+class GitRepositoryRepositoryInterface implements RepositoryRepositoryInterface
 {
     /**
      * @return Repository[]|array
