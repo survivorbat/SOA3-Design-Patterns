@@ -3,6 +3,7 @@
 namespace DomainBundle\Entity;
 
 use DomainBundle\Entity\SprintState\SprintState;
+use phpDocumentor\Reflection\Types\Integer;
 use SplObserver;
 use SplSubject;
 
@@ -16,6 +17,8 @@ class Sprint implements SplSubject, \Serializable
     private $exportHandler;
     /** @var SprintState $currentState */
     private $currentState;
+    /** @var BacklogComponent[]|array $backlogComponents */
+    private $backlogComponents = [];
 
     /**
      * Sprint constructor.
@@ -137,5 +140,15 @@ class Sprint implements SplSubject, \Serializable
     {
         $this->id = $id;
         return $this;
+    }
+
+    public function addBacklogComponent(BacklogComponent $backlogComponent): void
+    {
+        $this->backlogComponents[] = $backlogComponent;
+    }
+
+    public function backlogItemsToDo(): int
+    {
+        return count($this->backlogComponents);
     }
 }

@@ -3,6 +3,7 @@
 namespace tests\DomainBundle\Unit;
 
 use ApplicationServiceBundle\Service\ExportHandler\JSONExportHandler;
+use DomainBundle\Entity\BacklogComponent;
 use DomainBundle\Entity\Sprint;
 use PHPUnit\Framework\TestCase;
 
@@ -45,5 +46,12 @@ class SprintTest extends TestCase
     {
         $this->sprint->setId('0');
         $this->assertEquals("0", $this->sprint->getId());
+    }
+
+    public function testItCanHaveBacklogItems()
+    {
+        $backlogComponent = $this->createMock(BacklogComponent::class);
+        $this->sprint->addBacklogComponent($backlogComponent);
+        $this->assertEquals("1", $this->sprint->backlogItemsToDo());
     }
 }
