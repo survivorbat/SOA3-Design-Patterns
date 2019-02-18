@@ -1,7 +1,8 @@
 <?php
 
-namespace DomainBundle\Entity;
+namespace tests\DomainBundle\Unit;
 
+use DomainBundle\Entity\User;
 use PHPUnit\Framework\TestCase;
 
 class UserTest extends TestCase

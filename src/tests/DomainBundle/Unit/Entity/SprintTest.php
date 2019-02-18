@@ -6,11 +6,12 @@
  * Time: 21:22
  */
 
-namespace DomainBundle\Entity;
+namespace tests\DomainBundle\Unit;
 
 
 use ApplicationServiceBundle\Entity\SprintObserver\SprintEmailObserver;
 use ApplicationServiceBundle\Service\ExportHandler\JSONExportHandler;
+use DomainBundle\Entity\Sprint;
 use PHPUnit\Framework\TestCase;
 
 /**
