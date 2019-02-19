@@ -15,9 +15,9 @@ class BacklogComponentStateDoing extends BacklogComponentState
     {
         if ($this->canBeFinished($backlogComponent)) {
             $backlogComponent->setCurrentState(new BacklogComponentStateDone());
-        } else {
-            throw new InvalidArgumentException('It is not possible to finish an item that has unfinished subitems');
+            return;
         }
+        throw new InvalidArgumentException('It is not possible to finish an item that has unfinished subitems');
     }
 
     /**
