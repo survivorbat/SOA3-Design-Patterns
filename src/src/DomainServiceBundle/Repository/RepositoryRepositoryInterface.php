@@ -12,7 +12,7 @@ interface RepositoryRepositoryInterface
     public function findAll(): array;
 
     /**
-     * @param array $criteria
+     * @param array $criteria- fi
      * @param array $order
      * @return array
      */
@@ -22,7 +22,7 @@ interface RepositoryRepositoryInterface
      * @param $id
      * @return Repository|null
      */
-    public function findById($id): ?Repository;
+    public function findById(string $id): ?Repository;
 
     /**
      * @param array $criteria
