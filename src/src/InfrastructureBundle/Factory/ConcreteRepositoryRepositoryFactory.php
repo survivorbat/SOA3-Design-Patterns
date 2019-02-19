@@ -14,6 +14,6 @@ class ConcreteRepositoryRepositoryFactory implements RepositoryRepositoryFactory
     public function getRepositoryInstance(string $type): RepositoryRepositoryInterface
     {
         $type = "InfrastructureBundle\Repository\\" . $type . "RepositoryRepository";
-        return new $type;
+        return new $type();
     }
 }
