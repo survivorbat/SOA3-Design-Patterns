@@ -6,6 +6,8 @@ use DomainBundle\Entity\User;
 
 class ForumTopic
 {
+    /** @var string $id */
+    private $id = "";
     /** @var string $title */
     private $title = "";
     /** @var string $content */
@@ -14,6 +16,24 @@ class ForumTopic
     private $author;
     /** @var ForumComment[]|array $comments */
     private $comments = [];
+
+    /**
+     * @return string
+     */
+    public function getId(): string
+    {
+        return $this->id;
+    }
+
+    /**
+     * @param string $id
+     * @return ForumTopic
+     */
+    public function setId(string $id): ForumTopic
+    {
+        $this->id = $id;
+        return $this;
+    }
 
     /**
      * @return string

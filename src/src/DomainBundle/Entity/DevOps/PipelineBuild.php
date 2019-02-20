@@ -4,8 +4,8 @@ namespace DomainBundle\Entity\DevOps;
 
 class PipelineBuild
 {
-    /** @var string|null $id */
-    private $id;
+    /** @var string $id */
+    private $id = "";
     /** @var int $resultExitCode */
     private $resultExitCode = 0;
     /** @var string $logs */
@@ -14,17 +14,17 @@ class PipelineBuild
     private $tasks = [];
 
     /**
-     * @return null|string
+     * @return string
      */
-    public function getId(): ?string
+    public function getId(): string
     {
         return $this->id;
     }
 
     /**
-     * @param null|string $id
+     * @param string $id
      */
-    public function setId(?string $id): void
+    public function setId(string $id): void
     {
         $this->id = $id;
     }

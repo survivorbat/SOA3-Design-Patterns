@@ -1,6 +1,6 @@
 <?php
 
-namespace tests\DomainBundle\Unit;
+namespace tests\DomainBundle\Unit\Entity;
 
 use ApplicationServiceBundle\Service\ExportHandler\JSONExportHandlerInterface;
 use DomainBundle\Entity\BacklogComponent;

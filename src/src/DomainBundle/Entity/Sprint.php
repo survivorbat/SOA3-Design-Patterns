@@ -10,7 +10,7 @@ use SplSubject;
 class Sprint implements SplSubject, \Serializable
 {
     /** @var string $id */
-    private $id;
+    private $id = '';
     /** @var SplObserver[]|array $sprintObservers */
     private $sprintObservers = [];
     /** @var EntityExportHandlerInterface $exportHandler */

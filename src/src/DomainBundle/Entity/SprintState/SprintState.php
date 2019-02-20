@@ -19,6 +19,7 @@ abstract class SprintState
      */
     public function finish(Sprint $sprint): void
     {
+        throw new \BadMethodCallException('This state method has not been implemented.');
     }
 
     /**
@@ -26,6 +27,7 @@ abstract class SprintState
      */
     public function close(Sprint $sprint): void
     {
+        throw new \BadMethodCallException('This state method has not been implemented.');
     }
 
     /**
@@ -33,6 +35,7 @@ abstract class SprintState
      */
     public function cancel(Sprint $sprint): void
     {
+        throw new \BadMethodCallException('This state method has not been implemented.');
     }
 
     /**
@@ -40,5 +43,6 @@ abstract class SprintState
      */
     public function start(Sprint $sprint): void
     {
+        throw new \BadMethodCallException('This state method has not been implemented.');
     }
 }
