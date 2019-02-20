@@ -4,26 +4,26 @@ namespace DomainBundle\Entity\SCM;
 
 class RepositoryPullRequest
 {
-    /** @var string|null $id */
-    private $id;
+    /** @var string $id */
+    private $id = "";
     /** @var RepositoryBranch|null $sourceBranch */
     private $sourceBranch;
     /** @var RepositoryBranch|null $destinationBranch */
     private $destinationBranch;
 
     /**
-     * @return null|string
+     * @return string
      */
-    public function getId(): ?string
+    public function getId(): string
     {
         return $this->id;
     }
 
     /**
-     * @param null|string $id
+     * @param string $id
      * @return RepositoryPullRequest
      */
-    public function setId(?string $id): RepositoryPullRequest
+    public function setId(string $id): RepositoryPullRequest
     {
         $this->id = $id;
         return $this;

@@ -7,8 +7,8 @@ use DomainBundle\Entity\SCM\RepositoryBranch;
 
 class Pipeline
 {
-    /** @var string|null $id */
-    private $id;
+    /** @var string $id */
+    private $id = "";
     /** @var string $title */
     private $title = "";
     /** @var Repository|null $repository */
@@ -19,22 +19,20 @@ class Pipeline
     private $tasks = [];
     /** @var PipelineBuild[]|array $builds */
     private $builds = [];
-    /** @var PipelineVariableGroup[]|array $variableGroups */
-    private $variableGroups = [];
 
     /**
-     * @return null|string
+     * @return string
      */
-    public function getId(): ?string
+    public function getId(): string
     {
         return $this->id;
     }
 
     /**
-     * @param null|string $id
+     * @param string $id
      * @return Pipeline
      */
-    public function setId(?string $id): Pipeline
+    public function setId(string $id): Pipeline
     {
         $this->id = $id;
         return $this;
@@ -127,24 +125,6 @@ class Pipeline
     public function setBuilds($builds)
     {
         $this->builds = $builds;
-        return $this;
-    }
-
-    /**
-     * @return array|PipelineVariableGroup[]
-     */
-    public function getVariableGroups()
-    {
-        return $this->variableGroups;
-    }
-
-    /**
-     * @param array|PipelineVariableGroup[] $variableGroups
-     * @return Pipeline
-     */
-    public function setVariableGroups($variableGroups)
-    {
-        $this->variableGroups = $variableGroups;
         return $this;
     }
 

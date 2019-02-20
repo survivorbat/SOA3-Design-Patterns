@@ -6,10 +6,30 @@ use DomainBundle\Entity\User;
 
 class ForumComment
 {
+    /** @var string $id */
+    private $id = "";
     /** @var User|null $author */
     private $author;
     /** @var string $content */
     private $content = "";
+
+    /**
+     * @return string
+     */
+    public function getId(): string
+    {
+        return $this->id;
+    }
+
+    /**
+     * @param string $id
+     * @return ForumComment
+     */
+    public function setId(string $id): ForumComment
+    {
+        $this->id = $id;
+        return $this;
+    }
 
     /**
      * @return User|null

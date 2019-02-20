@@ -8,6 +8,8 @@ use DomainServiceBundle\Repository\RepositoryRepositoryInterface;
 class ConcreteRepositoryRepositoryFactory implements RepositoryRepositoryFactoryInterface
 {
     /**
+     * Get a repository by VCS name, for example: 'Git' or 'SVN'
+     *
      * @param string $type
      * @return RepositoryRepositoryInterface
      */

@@ -3,8 +3,9 @@
 namespace Tests\DomainBundle\Unit\Entity;
 
 use DomainBundle\Entity\Project;
+use PHPUnit\Framework\TestCase;
 
-class ProjectTest
+class ProjectTest extends TestCase
 {
     use EntityGetSetTestTrait;
 

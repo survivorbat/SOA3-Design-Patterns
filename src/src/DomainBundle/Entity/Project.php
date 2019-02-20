@@ -53,7 +53,7 @@ class Project
      * @param array|Sprint[] $sprints
      * @return Project
      */
-    public function setSprints($sprints): Project
+    public function setSprints(array $sprints): Project
     {
         $this->sprints = $sprints;
         return $this;
@@ -71,7 +71,7 @@ class Project
      * @param array|BacklogComponent[] $backlogItems
      * @return Project
      */
-    public function setBacklogComponents($backlogItems): Project
+    public function setBacklogComponents(array $backlogItems): Project
     {
         $this->backlogItems = $backlogItems;
         return $this;
@@ -89,7 +89,7 @@ class Project
      * @param array|User[] $users
      * @return Project
      */
-    public function setUsers($users): Project
+    public function setUsers(array $users): Project
     {
         $this->users = $users;
         return $this;
@@ -107,7 +107,7 @@ class Project
      * @param array|Pipeline[] $pipelines
      * @return Project
      */
-    public function setPipelines($pipelines): Project
+    public function setPipelines(array $pipelines): Project
     {
         $this->pipelines = $pipelines;
         return $this;
@@ -143,7 +143,7 @@ class Project
      * @param array|BacklogComponent[] $backlogItems
      * @return Project
      */
-    public function setBacklogItems($backlogItems)
+    public function setBacklogItems(array $backlogItems)
     {
         $this->backlogItems = $backlogItems;
         return $this;
@@ -161,7 +161,7 @@ class Project
      * @param array|ForumTopic[] $forumTopics
      * @return Project
      */
-    public function setForumTopics($forumTopics)
+    public function setForumTopics(array $forumTopics)
     {
         $this->forumTopics = $forumTopics;
         return $this;

@@ -5,11 +5,11 @@ namespace DomainBundle\Entity\SCM;
 class RepositoryBranch
 {
     /** @var string $id */
-    private $id;
+    private $id = "";
     /** @var string $name */
-    private $name;
+    private $name = "";
     /** @var RepositoryCommit[]|array $commits */
-    private $commits;
+    private $commits = [];
 
     /**
      * @return string
@@ -50,7 +50,7 @@ class RepositoryBranch
     /**
      * @return array|RepositoryCommit[]
      */
-    public function getCommits()
+    public function getCommits(): array
     {
         return $this->commits;
     }
@@ -59,7 +59,7 @@ class RepositoryBranch
      * @param array|RepositoryCommit[] $commits
      * @return RepositoryBranch
      */
-    public function setCommits($commits)
+    public function setCommits(array $commits)
     {
         $this->commits = $commits;
         return $this;

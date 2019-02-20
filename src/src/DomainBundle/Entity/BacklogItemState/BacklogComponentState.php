@@ -11,6 +11,7 @@ abstract class BacklogComponentState
      */
     public function start(BacklogComponent $backlogComponent): void
     {
+        throw new \BadMethodCallException('This state method has not been implemented.');
     }
 
     /**
@@ -18,6 +19,7 @@ abstract class BacklogComponentState
      */
     public function finish(BacklogComponent $backlogComponent): void
     {
+        throw new \BadMethodCallException('This state method has not been implemented.');
     }
 
     /**
@@ -25,6 +27,7 @@ abstract class BacklogComponentState
      */
     public function cancel(BacklogComponent $backlogComponent): void
     {
+        throw new \BadMethodCallException('This state method has not been implemented.');
     }
 
     /**
