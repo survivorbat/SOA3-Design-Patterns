@@ -1,6 +1,6 @@
 <?php
 
-namespace tests\DomainBundle\Unit;
+namespace tests\DomainBundle\Unit\Entity;
 
 use ApplicationServiceBundle\Service\ExportHandler\JSONExportHandlerInterface;
 use DomainBundle\Entity\BacklogComponent;
@@ -9,6 +9,11 @@ use PHPUnit\Framework\TestCase;
 
 class SprintTest extends TestCase
 {
+    use EntityGetSetTestTrait;
+
+    /** @var string $class */
+    protected $class = Sprint::class;
+
     /** @var Sprint $sprint */
     private $sprint;
 
