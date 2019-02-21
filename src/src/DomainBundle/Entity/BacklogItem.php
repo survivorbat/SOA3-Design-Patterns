@@ -14,7 +14,7 @@ class BacklogItem extends BacklogComponent
     {
         $this->subItems = array_filter(
             $this->subItems,
-            function (BacklogItem $backlogItemInList) use ($backlogComponent) {
+            function (BacklogComponent $backlogItemInList) use ($backlogComponent) {
                 return $backlogComponent !== $backlogItemInList;
             }
         );
