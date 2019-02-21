@@ -1,12 +1,6 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: gerben
- * Date: 18-2-19
- * Time: 15:03
- */
 
-namespace tests\DomainBundle\Unit;
+namespace Tests\DomainBundle\Unit;
 
 use DomainBundle\Entity\BacklogComponent;
 use DomainBundle\Entity\User;
