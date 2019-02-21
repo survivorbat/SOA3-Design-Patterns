@@ -1,22 +1,21 @@
 <?php
 
-namespace InfrastructureBundle\Bundle\Service;
+namespace InfrastructureBundle\Factory;
 
-use DomainBundle\Type\RepositoryType;
-use DomainServiceBundle\Factory\RepositoryRepositoryFactory;
-use DomainServiceBundle\Repository\RepositoryRepository;
-use InfrastructureBundle\Repository\GitRepositoryRepository;
-use InfrastructureBundle\Repository\SVNRepositoryRepository;
-use Symfony\Component\OptionsResolver\Exception\InvalidArgumentException;
+use DomainServiceBundle\Factory\RepositoryRepositoryFactoryInterface;
+use DomainServiceBundle\Repository\RepositoryRepositoryInterface;
 
-class ConcreteRepositoryRepositoryFactory implements RepositoryRepositoryFactory
+class ConcreteRepositoryRepositoryFactory implements RepositoryRepositoryFactoryInterface
 {
     /**
+     * Get a repository by VCS name, for example: 'Git' or 'SVN'
+     *
      * @param string $type
-     * @return RepositoryRepository
+     * @return RepositoryRepositoryInterface
      */
-    public function getRepositoryInstance(string $type): RepositoryRepository
+    public function getRepositoryInstance(string $type): RepositoryRepositoryInterface
     {
-        return new ($type .  "RepositoryRepository");
+        $type = "InfrastructureBundle\Repository\\" . $type . "RepositoryRepository";
+        return new $type();
     }
 }

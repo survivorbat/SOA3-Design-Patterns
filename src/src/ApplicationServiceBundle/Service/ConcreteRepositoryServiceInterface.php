@@ -2,10 +2,10 @@
 
 namespace ApplicationServiceBundle\Service;
 
-use ApplicationServiceBundle\Service\RepositoryService\RepositoryService;
+use ApplicationServiceBundle\Service\RepositoryService\RepositoryServiceInterface;
 use DomainBundle\Entity\Repository;
 
-class ConcreteRepositoryService implements RepositoryService
+class ConcreteRepositoryServiceInterface implements RepositoryServiceInterface
 {
     /**
      * @return Repository[]|array

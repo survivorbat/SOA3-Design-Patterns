@@ -1,6 +1,6 @@
 <?php
 
-namespace DomainBundle\Entity;
+namespace DomainBundle\Entity\SCM;
 
 use http\Exception\BadMethodCallException;
 
@@ -16,8 +16,10 @@ class Repository
     private $websiteUrl = "";
     /** @var string $type */
     private $type;
-    /** @var array $files */
-    private $files = [];
+    /** @var RepositoryBranch[]|array $branches */
+    private $branches = [];
+    /** @var RepositoryBranch|null $defaultBranch */
+    private $defaultBranch;
 
     /**
      * @return string
@@ -53,14 +55,6 @@ class Repository
     {
         $this->type = $type;
         return $this;
-    }
-
-    /**
-     * @param string $pathName
-     */
-    public function getFile(string $pathName)
-    {
-        throw new BadMethodCallException('Method not implemented');
     }
 
     /**
@@ -118,20 +112,38 @@ class Repository
     }
 
     /**
-     * @return array
+     * @return array|RepositoryBranch[]
      */
-    public function getFiles(): array
+    public function getBranches()
     {
-        return $this->files;
+        return $this->branches;
     }
 
     /**
-     * @param array $files
+     * @param array|RepositoryBranch[] $branches
      * @return Repository
      */
-    public function setFiles(array $files): Repository
+    public function setBranches($branches)
     {
-        $this->files = $files;
+        $this->branches = $branches;
+        return $this;
+    }
+
+    /**
+     * @return RepositoryBranch|null
+     */
+    public function getDefaultBranch(): ?RepositoryBranch
+    {
+        return $this->defaultBranch;
+    }
+
+    /**
+     * @param RepositoryBranch|null $defaultBranch
+     * @return Repository
+     */
+    public function setDefaultBranch(?RepositoryBranch $defaultBranch): Repository
+    {
+        $this->defaultBranch = $defaultBranch;
         return $this;
     }
 }

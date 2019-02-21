@@ -2,9 +2,9 @@
 
 namespace DomainServiceBundle\Repository;
 
-use DomainBundle\Entity\Repository;
+use DomainBundle\Entity\SCM\Repository;
 
-interface RepositoryRepository
+interface RepositoryRepositoryInterface
 {
     /**
      * @return Repository[]|array
@@ -12,7 +12,7 @@ interface RepositoryRepository
     public function findAll(): array;
 
     /**
-     * @param array $criteria
+     * @param array $criteria- fi
      * @param array $order
      * @return array
      */
@@ -22,7 +22,7 @@ interface RepositoryRepository
      * @param $id
      * @return Repository|null
      */
-    public function findById($id): ?Repository;
+    public function findById(string $id): ?Repository;
 
     /**
      * @param array $criteria

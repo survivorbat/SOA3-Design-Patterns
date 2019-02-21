@@ -1,12 +1,17 @@
 <?php
 
-namespace tests\DomainBundle\Unit;
+namespace tests\DomainBundle\Unit\Entity;
 
 use DomainBundle\Entity\User;
 use PHPUnit\Framework\TestCase;
 
 class UserTest extends TestCase
 {
+    use EntityGetSetTestTrait;
+
+    /** @var string $class */
+    protected $class = User::class;
+
     public function testIdSet(): void
     {
         $user = new User();

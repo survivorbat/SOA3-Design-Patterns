@@ -8,7 +8,7 @@ services:
       - ./src:/srv/html
     working_dir: /srv/html
     entrypoint: ["/bin/sh", "-c", "composer install
-      && vendor/phpunit/phpunit/phpunit /srv/html/tests --coverage-html ./coverage"]
+      && vendor/phpunit/phpunit/phpunit /srv/html/Tests --coverage-html ./coverage"]
   webserver:
     image: nginx:1.15.8
     # Normally I'd create a custom config, but this will do fine

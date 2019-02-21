@@ -2,10 +2,10 @@
 
 namespace InfrastructureBundle\Repository;
 
-use DomainBundle\Entity\Repository;
-use DomainServiceBundle\Repository\RepositoryRepository;
+use DomainBundle\Entity\SCM\Repository;
+use DomainServiceBundle\Repository\RepositoryRepositoryInterface;
 
-class SVNRepositoryRepository implements RepositoryRepository
+class SVNRepositoryRepository implements RepositoryRepositoryInterface
 {
     /**
      * @return Repository[]|array
@@ -29,7 +29,7 @@ class SVNRepositoryRepository implements RepositoryRepository
      * @param $id
      * @return Repository|null
      */
-    public function findById($id): ?Repository
+    public function findById(string $id): ?Repository
     {
         // TODO: Implement findById() method.
     }

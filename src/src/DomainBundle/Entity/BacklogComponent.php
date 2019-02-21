@@ -11,6 +11,8 @@ abstract class BacklogComponent
     private $id;
     /** @var string $title */
     private $title;
+    /** @var string $priority */
+    private $priority;
     /** @var string $description */
     private $description;
     /** @var BacklogComponentState $currentState */
@@ -34,33 +36,6 @@ abstract class BacklogComponent
     {
         $this->id = $id;
         return $this;
-    }
-
-    /**
-     * @param BacklogComponent $backlogComponent
-     * @return BacklogComponent
-     */
-    public function addComponent(BacklogComponent $backlogComponent): BacklogComponent
-    {
-        throw new BadMethodCallException('Method not implemented');
-    }
-
-    /**
-     * @param BacklogComponent $backlogComponent
-     * @return BacklogComponent
-     */
-    public function removeComponent(BacklogComponent $backlogComponent): BacklogComponent
-    {
-        throw new BadMethodCallException('Method not implemented');
-    }
-
-    /**
-     * @param int $index
-     * @return BacklogComponent|null
-     */
-    public function getChild(int $index): ?BacklogComponent
-    {
-        throw new BadMethodCallException('Method not implemented');
     }
 
     /**
@@ -136,6 +111,24 @@ abstract class BacklogComponent
     }
 
     /**
+     * @return string
+     */
+    public function getPriority(): ?string
+    {
+        return $this->priority;
+    }
+
+    /**
+     * @param string $priority
+     * @return BacklogComponent
+     */
+    public function setPriority(?string $priority): BacklogComponent
+    {
+        $this->priority = $priority;
+        return $this;
+    }
+
+    /**
      * @return void
      */
     public function start(): void
@@ -150,4 +143,60 @@ abstract class BacklogComponent
     {
         $this->currentState->finish($this);
     }
+
+    /**
+     * @return void
+     */
+    public function cancel(): void
+    {
+        $this->currentState->cancel($this);
+    }
+
+    /**
+     * @param BacklogComponent $backlogComponent
+     * @return BacklogComponent
+     */
+    public function addComponent(BacklogComponent $backlogComponent): BacklogComponent
+    {
+        throw new BadMethodCallException('Method not implemented');
+    }
+
+    /**
+     * @param BacklogComponent $backlogComponent
+     * @return BacklogComponent
+     */
+    public function removeComponent(BacklogComponent $backlogComponent): BacklogComponent
+    {
+        throw new BadMethodCallException('Method not implemented');
+    }
+
+    /**
+     * @param int $index
+     * @return BacklogComponent|null
+     */
+    public function getChild(int $index): ?BacklogComponent
+    {
+        throw new BadMethodCallException('Method not implemented');
+    }
+
+    /**
+     * @return array|null
+     */
+    public function getChildren(): ?array
+    {
+        return null;
+    }
+
+    /**
+     * @return bool
+     */
+    public function canBeFinished(): bool
+    {
+        return $this->getCurrentState()->canBeFinished($this);
+    }
+
+    /**
+     * @return bool
+     */
+    abstract public function isFinished(): bool;
 }

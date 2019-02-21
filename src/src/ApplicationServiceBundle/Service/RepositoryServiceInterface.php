@@ -4,7 +4,7 @@ namespace ApplicationServiceBundle\Service\RepositoryService;
 
 use DomainBundle\Entity\Repository;
 
-interface RepositoryService
+interface RepositoryServiceInterface
 {
     /**
      * @return Repository[]|array

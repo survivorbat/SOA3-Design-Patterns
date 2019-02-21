@@ -1,8 +1,8 @@
 <?php
 
-namespace tests\DomainBundle\Unit;
+namespace tests\DomainBundle\Unit\Entity;
 
-use ApplicationServiceBundle\Service\ExportHandler\JSONExportHandler;
+use ApplicationServiceBundle\Service\ExportHandler\JSONExportHandlerInterface;
 use DomainBundle\Entity\BacklogComponent;
 use DomainBundle\Entity\Sprint;
 use PHPUnit\Framework\TestCase;
@@ -14,7 +14,7 @@ class SprintTest extends TestCase
 
     public function setUp(): void
     {
-        $entityExportHandler = new JSONExportHandler();
+        $entityExportHandler = new JSONExportHandlerInterface();
         $this->sprint = new Sprint($entityExportHandler);
     }
 

@@ -31,7 +31,7 @@ steps:
   workingDirectory: "$(Build.SourcesDirectory)/src"
   displayName: "Running composer install"
 
-- script: src/vendor/phpunit/phpunit/phpunit src/tests --coverage-clover  ./src/coverage.xml -c ./src/phpunit.xml
+- script: src/vendor/phpunit/phpunit/phpunit src/Tests --coverage-clover  ./src/coverage.xml -c ./src/phpunit.xml
   displayName: "Running PHPUnit tests"
 
 - script: src/vendor/bin/codacycoverage clover ./src/coverage.xml

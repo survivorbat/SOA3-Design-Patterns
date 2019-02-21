@@ -2,20 +2,26 @@
 
 namespace DomainBundle\Entity;
 
+use DomainBundle\Entity\DevOps\Pipeline;
+use DomainBundle\Entity\Forum\ForumTopic;
+use DomainBundle\Entity\SCM\Repository;
+
 class Project
 {
     /** @var string|null $id */
     private $id;
     /** @var Sprint[]|array $sprints */
-    private $sprints;
+    private $sprints = [];
     /** @var BacklogComponent[]|array $backlogItems */
-    private $backlogItems;
+    private $backlogItems = [];
     /** @var User[]|array $users */
-    private $users;
+    private $users = [];
     /** @var Pipeline[]|array $pipelines */
-    private $pipelines;
+    private $pipelines = [];
     /** @var Repository[]|array $repositories */
-    private $repositories;
+    private $repositories = [];
+    /** @var ForumTopic[]|array $forumTopics */
+    private $forumTopics = [];
 
     /**
      * @return array|Sprint[]
@@ -47,7 +53,7 @@ class Project
      * @param array|Sprint[] $sprints
      * @return Project
      */
-    public function setSprints($sprints): Project
+    public function setSprints(array $sprints): Project
     {
         $this->sprints = $sprints;
         return $this;
@@ -65,7 +71,7 @@ class Project
      * @param array|BacklogComponent[] $backlogItems
      * @return Project
      */
-    public function setBacklogComponents($backlogItems): Project
+    public function setBacklogComponents(array $backlogItems): Project
     {
         $this->backlogItems = $backlogItems;
         return $this;
@@ -83,7 +89,7 @@ class Project
      * @param array|User[] $users
      * @return Project
      */
-    public function setUsers($users): Project
+    public function setUsers(array $users): Project
     {
         $this->users = $users;
         return $this;
@@ -101,7 +107,7 @@ class Project
      * @param array|Pipeline[] $pipelines
      * @return Project
      */
-    public function setPipelines($pipelines): Project
+    public function setPipelines(array $pipelines): Project
     {
         $this->pipelines = $pipelines;
         return $this;
@@ -122,6 +128,42 @@ class Project
     public function setRepositories(array $repositories): Project
     {
         $this->repositories = $repositories;
+        return $this;
+    }
+
+    /**
+     * @return array|BacklogComponent[]
+     */
+    public function getBacklogItems()
+    {
+        return $this->backlogItems;
+    }
+
+    /**
+     * @param array|BacklogComponent[] $backlogItems
+     * @return Project
+     */
+    public function setBacklogItems(array $backlogItems)
+    {
+        $this->backlogItems = $backlogItems;
+        return $this;
+    }
+
+    /**
+     * @return array|ForumTopic[]
+     */
+    public function getForumTopics()
+    {
+        return $this->forumTopics;
+    }
+
+    /**
+     * @param array|ForumTopic[] $forumTopics
+     * @return Project
+     */
+    public function setForumTopics(array $forumTopics)
+    {
+        $this->forumTopics = $forumTopics;
         return $this;
     }
 }
