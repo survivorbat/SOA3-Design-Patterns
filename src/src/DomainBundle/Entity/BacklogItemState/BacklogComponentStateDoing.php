@@ -3,8 +3,6 @@
 namespace DomainBundle\Entity\BacklogItemState;
 
 use DomainBundle\Entity\BacklogComponent;
-use DomainBundle\Entity\BacklogTask;
-use http\Exception\InvalidArgumentException;
 
 class BacklogComponentStateDoing extends BacklogComponentState
 {
@@ -17,7 +15,7 @@ class BacklogComponentStateDoing extends BacklogComponentState
             $backlogComponent->setCurrentState(new BacklogComponentStateDone());
             return;
         }
-        throw new InvalidArgumentException('It is not possible to finish an item that has unfinished subitems');
+        throw new \BadMethodCallException('It is not possible to finish an item that has unfinished subitems');
     }
 
     /**
@@ -26,7 +24,7 @@ class BacklogComponentStateDoing extends BacklogComponentState
      */
     public function canBeFinished(BacklogComponent $backlogComponent): bool
     {
-        return null === $backlogComponent->getChildren() || $backlogComponent->isFinished();
+        return null === $backlogComponent->getChildren() && $backlogComponent->isFinished();
     }
 
     /**

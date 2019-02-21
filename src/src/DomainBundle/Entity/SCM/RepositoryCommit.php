@@ -2,8 +2,6 @@
 
 namespace DomainBundle\Entity\SCM;
 
-use DateTime;
-
 class RepositoryCommit
 {
     /** @var string $id */
@@ -14,10 +12,10 @@ class RepositoryCommit
     private $author = "";
     /** @var int $size */
     private $size = 0;
-    /** @var DateTime $authored_date */
-    private $authored_date;
-    /** @var DateTime $committed_date */
-    private $committed_date;
+    /** @var \DateTime $authoredDate */
+    private $authoredDate;
+    /** @var \DateTime $committedDate */
+    private $committedDate;
     /** @var RepositoryBranch|null $branch */
     private $branch;
 
@@ -27,8 +25,8 @@ class RepositoryCommit
      */
     public function __construct()
     {
-        $this->authored_date = new DateTime();
-        $this->committed_date = new DateTime();
+        $this->authoredDate = new \DateTime();
+        $this->committedDate = new \DateTime();
     }
 
     /**
@@ -104,38 +102,38 @@ class RepositoryCommit
     }
 
     /**
-     * @return DateTime
+     * @return \DateTime
      */
-    public function getAuthoredDate(): DateTime
+    public function getAuthoredDate(): \DateTime
     {
-        return $this->authored_date;
+        return $this->authoredDate;
     }
 
     /**
-     * @param DateTime $authored_date
+     * @param \DateTime $authoredDate
      * @return RepositoryCommit
      */
-    public function setAuthoredDate(DateTime $authored_date): RepositoryCommit
+    public function setAuthoredDate(\DateTime $authoredDate): RepositoryCommit
     {
-        $this->authored_date = $authored_date;
+        $this->authoredDate = $authoredDate;
         return $this;
     }
 
     /**
-     * @return DateTime
+     * @return \DateTime
      */
-    public function getCommittedDate(): DateTime
+    public function getCommittedDate(): \DateTime
     {
-        return $this->committed_date;
+        return $this->committedDate;
     }
 
     /**
-     * @param DateTime $committed_date
+     * @param \DateTime $committedDate
      * @return RepositoryCommit
      */
-    public function setCommittedDate(DateTime $committed_date): RepositoryCommit
+    public function setCommittedDate(\DateTime $committedDate): RepositoryCommit
     {
-        $this->committed_date = $committed_date;
+        $this->committedDate = $committedDate;
         return $this;
     }
 

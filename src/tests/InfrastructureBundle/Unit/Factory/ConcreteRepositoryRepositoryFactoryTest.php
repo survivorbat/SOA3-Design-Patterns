@@ -1,6 +1,6 @@
 <?php
 
-namespace Tests\InfrastructureBundle\Factory;
+namespace Tests\InfrastructureBundle\Unit\Factory;
 
 use InfrastructureBundle\Factory\ConcreteRepositoryRepositoryFactory;
 use InfrastructureBundle\Repository\GitRepositoryRepository;

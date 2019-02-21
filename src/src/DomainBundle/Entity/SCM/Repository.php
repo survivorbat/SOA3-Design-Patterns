@@ -58,14 +58,6 @@ class Repository
     }
 
     /**
-     * @param string $pathName
-     */
-    public function getFile(string $pathName)
-    {
-        throw new BadMethodCallException('Method not implemented');
-    }
-
-    /**
      * @return string
      */
     public function getTitle(): string
@@ -116,24 +108,6 @@ class Repository
     public function setWebsiteUrl(string $websiteUrl): Repository
     {
         $this->websiteUrl = $websiteUrl;
-        return $this;
-    }
-
-    /**
-     * @return array
-     */
-    public function getFiles(): array
-    {
-        return $this->files;
-    }
-
-    /**
-     * @param array $files
-     * @return Repository
-     */
-    public function setFiles(array $files): Repository
-    {
-        $this->files = $files;
         return $this;
     }
 
