@@ -3,7 +3,7 @@
 namespace ApplicationServiceBundle\Service;
 
 use ApplicationServiceBundle\Service\RepositoryService\RepositoryServiceInterface;
-use DomainBundle\Entity\Repository;
+use DomainBundle\Entity\SCM\Repository;
 
 class ConcreteRepositoryServiceInterface implements RepositoryServiceInterface
 {

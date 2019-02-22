@@ -21,4 +21,12 @@ class SprintStateFinished extends SprintState
     {
         $sprint->setCurrentState(new SprintStateCanceled());
     }
+
+    /**
+     * @return string
+     */
+    public function getStateDescription(): string
+    {
+        return 'Deze sprint is voorbij.';
+    }
 }

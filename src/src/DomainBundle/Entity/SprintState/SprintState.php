@@ -45,4 +45,9 @@ abstract class SprintState
     {
         throw new \BadMethodCallException('This state method has not been implemented.');
     }
+
+    /**
+     * @return string
+     */
+    abstract public function getStateDescription(): string;
 }

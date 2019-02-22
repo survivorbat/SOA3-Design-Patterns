@@ -119,6 +119,15 @@ class Pipeline
     }
 
     /**
+     * @param PipelineBuild $build
+     * @return Pipeline
+     */
+    public function addBuild(PipelineBuild $build): Pipeline
+    {
+        $this->builds[] = $build;
+    }
+
+    /**
      * @param array|PipelineBuild[] $builds
      * @return Pipeline
      */

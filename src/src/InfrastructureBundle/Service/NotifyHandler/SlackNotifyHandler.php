@@ -1,6 +1,8 @@
 <?php
 
-namespace ApplicationServiceBundle\Service\NotifyHandler;
+namespace InfrastructureBundle\Service\NotifyHandler;
+
+use ApplicationServiceBundle\Service\NotifyHandler\NotifyHandler;
 
 class SlackNotifyHandler extends NotifyHandler
 {

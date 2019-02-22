@@ -1,8 +1,10 @@
 <?php
 
-namespace ApplicationServiceBundle\Service\NotifyHandler;
+namespace InfrastructureBundle\Service\NotifyHandler;
 
-class SMSNotifyHandler extends NotifyHandler
+use ApplicationServiceBundle\Service\NotifyHandler\NotifyHandler;
+
+class EmailNotifyHandler extends NotifyHandler
 {
     /**
      * @return void

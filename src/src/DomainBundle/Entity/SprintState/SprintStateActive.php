@@ -13,4 +13,12 @@ class SprintStateActive extends SprintState
     {
         $sprint->setCurrentState(new SprintStateCanceled());
     }
+
+    /**
+     * @return string
+     */
+    public function getStateDescription(): string
+    {
+        return 'This sprint is currently active.';
+    }
 }

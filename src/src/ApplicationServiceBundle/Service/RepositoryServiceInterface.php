@@ -2,7 +2,7 @@
 
 namespace ApplicationServiceBundle\Service\RepositoryService;
 
-use DomainBundle\Entity\Repository;
+use DomainBundle\Entity\SCM\Repository;
 
 interface RepositoryServiceInterface
 {

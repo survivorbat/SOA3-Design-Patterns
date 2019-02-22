@@ -76,4 +76,22 @@ class PipelineBuild
     {
         $this->tasks = $tasks;
     }
+
+    /**
+     * Just like computer processes we take exit code 0 as a successful run.
+     *
+     * @return int
+     */
+    public function run(): int
+    {
+        foreach ($this->getTasks() as $task) {
+            $taskResult = $task->execute();
+
+            if (0 !== $taskResult) {
+                $this->setResultExitCode($taskResult);
+                return $taskResult;
+            }
+        }
+        return 0;
+    }
 }

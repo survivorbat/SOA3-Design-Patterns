@@ -76,7 +76,7 @@ class Sprint implements SplSubject, \Serializable
     public function notify(): void
     {
         foreach ($this->sprintObservers as $observer) {
-            $observer->update($this);
+            $observer->update($this, ['message' => $this->currentState->getStateDescription()]);
         }
     }
 
@@ -107,11 +107,11 @@ class Sprint implements SplSubject, \Serializable
     }
 
     /**
-     * @return string|void
+     * @return string|null
      */
     public function serialize(): ?string
     {
-        // TODO: Implement serialize() method.
+        return json_encode($this);
     }
 
 
@@ -121,7 +121,7 @@ class Sprint implements SplSubject, \Serializable
      */
     public function unserialize($serialized): \Serializable
     {
-        // TODO: Implement unserialize() method.
+        return json_decode($serialized);
     }
 
     /**

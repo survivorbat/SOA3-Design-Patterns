@@ -3,6 +3,7 @@
 namespace ApplicationServiceBundle\Service\NotifyHandler;
 
 use DomainBundle\Entity\NotifyHandlerInterface;
+use DomainBundle\Entity\User;
 
 abstract class NotifyHandler implements NotifyHandlerInterface
 {
@@ -10,7 +11,7 @@ abstract class NotifyHandler implements NotifyHandlerInterface
      * @param string $message
      * @return void
      */
-    final public function sendMessage(string $message): void
+    final public function sendMessage(User $user, string $message): void
     {
         $this->collectReceiverData();
         $this->composeMessageContent();
