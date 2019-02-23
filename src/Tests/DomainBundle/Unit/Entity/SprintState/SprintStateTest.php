@@ -32,6 +32,9 @@ class SprintStateTest extends TestCase
             public function getStateDescription(): string
             {
             }
+            public function getStateTitle(): string
+            {
+            }
         };
 
         $this->assertFalse($dummyClass->isEditable());
@@ -44,6 +47,9 @@ class SprintStateTest extends TestCase
     {
         $dummyClass = new class($this->mockExportHandler) extends SprintState {
             public function getStateDescription(): string
+            {
+            }
+            public function getStateTitle(): string
             {
             }
         };
@@ -62,6 +68,9 @@ class SprintStateTest extends TestCase
             public function getStateDescription(): string
             {
             }
+            public function getStateTitle(): string
+            {
+            }
         };
 
         $this->expectException(\BadMethodCallException::class);
@@ -78,6 +87,9 @@ class SprintStateTest extends TestCase
             public function getStateDescription(): string
             {
             }
+            public function getStateTitle(): string
+            {
+            }
         };
 
         $this->expectException(\BadMethodCallException::class);
@@ -92,6 +104,9 @@ class SprintStateTest extends TestCase
     {
         $dummyClass = new class($this->mockExportHandler) extends SprintState {
             public function getStateDescription(): string
+            {
+            }
+            public function getStateTitle(): string
             {
             }
         };

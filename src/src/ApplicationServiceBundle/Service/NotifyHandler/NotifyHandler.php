@@ -13,7 +13,7 @@ abstract class NotifyHandler implements NotifyHandlerInterface
     /**
      * @return void
      */
-    final public function sendMessage(string $message): void
+    public function sendMessage(string $message): void
     {
         $this->message = $message;
 

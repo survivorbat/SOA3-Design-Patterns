@@ -11,4 +11,12 @@ class SprintStateClosed extends SprintState
     {
         return 'Deze sprint is volledig afgerond.';
     }
+
+    /**
+     * @return string
+     */
+    public function getStateTitle(): string
+    {
+        return 'Closed';
+    }
 }

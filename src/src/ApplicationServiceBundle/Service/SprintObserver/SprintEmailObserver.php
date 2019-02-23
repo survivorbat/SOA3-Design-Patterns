@@ -1,6 +1,6 @@
 <?php
 
-namespace ApplicationServiceBundle\Entity\SprintObserver;
+namespace ApplicationServiceBundle\Service\SprintObserver;
 
 use ApplicationServiceBundle\Service\NotifyHandler\NotifyHandler;
 use SplObserver;
@@ -22,11 +22,11 @@ class SprintEmailObserver implements SplObserver
 
     /**
      * @param SplSubject $subject
-     * @param array $eventData
      */
     public function update(SplSubject $subject): void
     {
-        // TODO: FIX THIS
-        $this->notifyHandler->sendMessage();
+        if ($subject->getCurrentState()->getStateTitle() == "New" && $subject->getPrevState()->getStateTitle() == "Closed") {
+            $this->notifyHandler->sendMessage("");
+        }
     }
 }

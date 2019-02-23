@@ -19,6 +19,8 @@ class Sprint implements SplSubject, Exportable
     private $exportHandler;
     /** @var SprintState $currentState */
     private $currentState;
+    /** @var SprintState $prevState */
+    private $prevState;
     /** @var BacklogComponent[]|array $backlogComponents */
     private $backlogComponents = [];
     /** @var \DateTime $createdAt */
@@ -45,6 +47,7 @@ class Sprint implements SplSubject, Exportable
      */
     public function setCurrentState(SprintState $sprintState): Sprint
     {
+        $this->prevState = $this->currentState;
         $this->currentState = $sprintState;
         return $this;
     }
@@ -193,5 +196,13 @@ class Sprint implements SplSubject, Exportable
     public function getCurrentState(): SprintState
     {
         return $this->currentState;
+    }
+
+    /**
+     * @return SprintState
+     */
+    public function getPrevState(): ?SprintState
+    {
+        return $this->prevState;
     }
 }

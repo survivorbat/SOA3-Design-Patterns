@@ -11,4 +11,12 @@ class SprintStateCanceled extends SprintState
     {
         return 'This sprint has been canceled.';
     }
+
+    /**
+     * @return string
+     */
+    public function getStateTitle(): string
+    {
+        return 'Canceled';
+    }
 }

@@ -49,5 +49,10 @@ abstract class SprintState
     /**
      * @return string
      */
+    abstract public function getStateTitle(): string;
+
+    /**
+     * @return string
+     */
     abstract public function getStateDescription(): string;
 }

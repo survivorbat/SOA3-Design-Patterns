@@ -29,4 +29,12 @@ class SprintStateActive extends SprintState
     {
         return 'This sprint is currently active.';
     }
+
+    /**
+     * @return string
+     */
+    public function getStateTitle(): string
+    {
+        return 'Active';
+    }
 }

@@ -29,4 +29,12 @@ class SprintStateNew extends SprintState
     {
         return 'Deze sprint is nieuw en nog niet begonnen.';
     }
+
+    /**
+     * @return string
+     */
+    public function getStateTitle(): string
+    {
+        return 'New';
+    }
 }
