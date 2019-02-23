@@ -125,6 +125,7 @@ class Pipeline
     public function addBuild(PipelineBuild $build): Pipeline
     {
         $this->builds[] = $build;
+        return $this;
     }
 
     /**
