@@ -84,4 +84,14 @@ class SprintTest extends TestCase
         $this->sprint->addBacklogComponent($backlogComponent);
         $this->assertEquals("1", $this->sprint->backlogItemsToDo());
     }
+
+    /**
+     * @return void
+     */
+    public function testItCanReturnSprintState()
+    {
+        $sprintState = $this->createMock(SprintState::class);
+        $this->sprint->setCurrentState($sprintState);
+        $this->assertEquals($sprintState, $this->sprint->getCurrentState());
+    }
 }

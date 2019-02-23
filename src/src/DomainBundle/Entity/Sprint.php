@@ -186,4 +186,12 @@ class Sprint implements SplSubject, Exportable
         $this->createdAt = $createdAt;
         return $this;
     }
+
+    /**
+     * @return SprintState
+     */
+    public function getCurrentState(): SprintState
+    {
+        return $this->currentState;
+    }
 }
