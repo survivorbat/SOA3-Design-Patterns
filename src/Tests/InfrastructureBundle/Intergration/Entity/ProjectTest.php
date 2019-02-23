@@ -42,7 +42,7 @@ class ProjectTest extends TestCase
             ->method('dumpFile')
             ->with(
                 'projectTestSuffix.json',
-                '{"exportHandler":[],"sprints":[],"id":"2","users":[],"pipelines":[],"repositories":[],"backlogItems":[],"forumTopics":[],"title":"Project titel","description":"Een project dat gebouwd is voor school","createdAt":{"timezone":{"name":"-04:00","transitions":false,"location":false},"offset":-14400,"timestamp":1503159475}}'
+                '{"exportHandler":[],"sprints":[],"id":"2","users":[],"pipelines":[],"repositories":[],"backlogItems":[],"forumTopics":[],"title":"ProjectTest titel","description":"Een project dat gebouwd is voor school","createdAt":{"timezone":{"name":"-04:00","transitions":false,"location":false},"offset":-14400,"timestamp":1503159475}}'
             );
 
         $exportHandler = new JsonExportHandler(
@@ -55,7 +55,7 @@ class ProjectTest extends TestCase
         $project = new Project($exportHandler);
 
         $project->setId(2)
-            ->setTitle('Project titel')
+            ->setTitle('ProjectTest titel')
             ->setDescription('Een project dat gebouwd is voor school')
             ->setCreatedAt(new \DateTime('2017-08-19 12:17:55 -0400'));
 
@@ -74,7 +74,7 @@ class ProjectTest extends TestCase
             ->with(
                 'projectTestSuffix.xml',
                 '<?xml version="1.0"?>
-<response><exportHandler/><sprints/><id>2</id><users/><pipelines/><repositories/><backlogItems/><forumTopics/><title>Project titel</title><description>Een project dat gebouwd is voor school</description><createdAt><timezone><name>-04:00</name><transitions>0</transitions><location>0</location></timezone><offset>-14400</offset><timestamp>1503159475</timestamp></createdAt></response>
+<response><exportHandler/><sprints/><id>2</id><users/><pipelines/><repositories/><backlogItems/><forumTopics/><title>ProjectTest titel</title><description>Een project dat gebouwd is voor school</description><createdAt><timezone><name>-04:00</name><transitions>0</transitions><location>0</location></timezone><offset>-14400</offset><timestamp>1503159475</timestamp></createdAt></response>
 '
             );
 
@@ -88,7 +88,7 @@ class ProjectTest extends TestCase
         $project = new Project($exportHandler);
 
         $project->setId(2)
-            ->setTitle('Project titel')
+            ->setTitle('ProjectTest titel')
             ->setDescription('Een project dat gebouwd is voor school')
             ->setCreatedAt(new \DateTime('2017-08-19 12:17:55 -0400'));
 
