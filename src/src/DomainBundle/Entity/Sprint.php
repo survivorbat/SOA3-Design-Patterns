@@ -87,7 +87,7 @@ class Sprint implements SplSubject, Exportable
     public function notify(): void
     {
         foreach ($this->sprintObservers as $observer) {
-            $observer->update($this, ['message' => $this->currentState->getStateDescription()]);
+            $observer->update($this);
         }
     }
 

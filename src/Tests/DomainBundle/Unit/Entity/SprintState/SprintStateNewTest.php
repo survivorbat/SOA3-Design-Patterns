@@ -2,7 +2,9 @@
 
 namespace Tests\DomainBundle\Unit\Entity\SprintState;
 
-class SprintStateNewTest
+use PHPUnit\Framework\TestCase;
+
+class SprintStateNewTest extends TestCase
 {
     /**
      * @return void

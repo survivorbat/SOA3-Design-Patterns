@@ -7,12 +7,16 @@ use DomainBundle\Entity\User;
 
 abstract class NotifyHandler implements NotifyHandlerInterface
 {
+    /** @var string $message */
+    protected $message;
+
     /**
-     * @param string $message
      * @return void
      */
-    final public function sendMessage(User $user, string $message): void
+    final public function sendMessage(string $message): void
     {
+        $this->message = $message;
+
         $this->collectReceiverData();
         $this->composeMessageContent();
         $this->composeMessage();

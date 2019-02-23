@@ -24,8 +24,9 @@ class SprintEmailObserver implements SplObserver
      * @param SplSubject $subject
      * @param array $eventData
      */
-    public function update(SplSubject $subject, array $eventData = []): void
+    public function update(SplSubject $subject): void
     {
-        $this->notifyHandler->sendMessage($subject, $eventData['message']);
+        // TODO: FIX THIS
+        $this->notifyHandler->sendMessage();
     }
 }
