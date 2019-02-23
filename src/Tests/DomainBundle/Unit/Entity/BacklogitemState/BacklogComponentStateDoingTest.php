@@ -52,6 +52,9 @@ class BacklogComponentStateDoingTest extends TestCase
         $backlogComponentMock->method('isFinished')
             ->willReturn(true);
 
+        $backlogComponentMock->method('canBeFinished')
+            ->willReturn(true);
+
         $backlogComponentState = new BacklogComponentStateDoing();
 
         $backlogComponentMock->expects($this->once())

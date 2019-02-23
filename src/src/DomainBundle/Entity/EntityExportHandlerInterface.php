@@ -5,7 +5,7 @@ namespace DomainBundle\Entity;
 interface EntityExportHandlerInterface
 {
     /**
-     * @param \Serializable $sprint
+     * @param Exportable $entity
      */
-    public function export(\Serializable $sprint): void;
+    public function export(Exportable $entity): void;
 }

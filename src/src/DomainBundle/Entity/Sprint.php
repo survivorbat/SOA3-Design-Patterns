@@ -7,10 +7,12 @@ use phpDocumentor\Reflection\Types\Integer;
 use SplObserver;
 use SplSubject;
 
-class Sprint implements SplSubject, \Serializable
+class Sprint implements SplSubject, Exportable
 {
     /** @var string $id */
     private $id = '';
+    /** @var string $name */
+    private $name;
     /** @var SplObserver[]|array $sprintObservers */
     private $sprintObservers = [];
     /** @var EntityExportHandlerInterface $exportHandler */
@@ -19,14 +21,22 @@ class Sprint implements SplSubject, \Serializable
     private $currentState;
     /** @var BacklogComponent[]|array $backlogComponents */
     private $backlogComponents = [];
+    /** @var \DateTime $createdAt */
+    private $createdAt;
 
     /**
      * Sprint constructor.
      * @param EntityExportHandlerInterface $exportHandler
+     * @param SprintState $initialState
      */
-    public function __construct(EntityExportHandlerInterface $exportHandler)
-    {
+    public function __construct(
+        EntityExportHandlerInterface $exportHandler,
+        SprintState $initialState
+    ) {
         $this->exportHandler = $exportHandler;
+        $this->setCurrentState($initialState);
+
+        $this->createdAt = new \DateTime();
     }
 
     /**
@@ -36,6 +46,7 @@ class Sprint implements SplSubject, \Serializable
     public function setCurrentState(SprintState $sprintState): Sprint
     {
         $this->currentState = $sprintState;
+        return $this;
     }
 
     /**
@@ -107,24 +118,6 @@ class Sprint implements SplSubject, \Serializable
     }
 
     /**
-     * @return string|null
-     */
-    public function serialize(): ?string
-    {
-        return json_encode($this);
-    }
-
-
-    /**
-     * @param string $serialized
-     * @return \Serializable
-     */
-    public function unserialize($serialized): \Serializable
-    {
-        return json_decode($serialized);
-    }
-
-    /**
      * @return string
      */
     public function getId(): string
@@ -156,5 +149,41 @@ class Sprint implements SplSubject, \Serializable
     public function backlogItemsToDo(): int
     {
         return count($this->backlogComponents);
+    }
+
+    /**
+     * @return string
+     */
+    public function getName(): string
+    {
+        return $this->name;
+    }
+
+    /**
+     * @param string $name
+     * @return Sprint
+     */
+    public function setName(string $name): Sprint
+    {
+        $this->name = $name;
+        return $this;
+    }
+
+    /**
+     * @return \DateTime
+     */
+    public function getCreatedAt(): \DateTime
+    {
+        return $this->createdAt;
+    }
+
+    /**
+     * @param \DateTime $createdAt
+     * @return Sprint
+     */
+    public function setCreatedAt(\DateTime $createdAt): Sprint
+    {
+        $this->createdAt = $createdAt;
+        return $this;
     }
 }

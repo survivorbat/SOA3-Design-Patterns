@@ -19,6 +19,17 @@ abstract class BacklogComponent
     private $currentState;
     /** @var ?User $assignedUser */
     private $assignedUser;
+    /** @var int $score */
+    protected $score;
+
+    /**
+     * BacklogComponent constructor.
+     * @param BacklogComponentState $initialState
+     */
+    public function __construct(BacklogComponentState $initialState)
+    {
+        $this->currentState = $initialState;
+    }
 
     /**
      * @return null|string
@@ -158,7 +169,7 @@ abstract class BacklogComponent
      */
     public function addComponent(BacklogComponent $backlogComponent): BacklogComponent
     {
-        throw new BadMethodCallException('Method not implemented');
+        throw new \BadMethodCallException('Method not implemented');
     }
 
     /**
@@ -167,7 +178,7 @@ abstract class BacklogComponent
      */
     public function removeComponent(BacklogComponent $backlogComponent): BacklogComponent
     {
-        throw new BadMethodCallException('Method not implemented');
+        throw new \BadMethodCallException('Method not implemented');
     }
 
     /**
@@ -176,7 +187,7 @@ abstract class BacklogComponent
      */
     public function getChild(int $index): ?BacklogComponent
     {
-        throw new BadMethodCallException('Method not implemented');
+        throw new \BadMethodCallException('Method not implemented');
     }
 
     /**
@@ -190,13 +201,28 @@ abstract class BacklogComponent
     /**
      * @return bool
      */
-    public function canBeFinished(): bool
+    public function isFinished(): bool
     {
-        return $this->getCurrentState()->canBeFinished($this);
+        return $this->getCurrentState()->isFinished();
+    }
+
+    /**
+     * @param int $score
+     * @return int
+     */
+    public function setScore(int $score): BacklogComponent
+    {
+        $this->score = $score;
+        return $this;
     }
 
     /**
      * @return bool
      */
-    abstract public function isFinished(): bool;
+    abstract public function canBeFinished(): bool;
+
+    /**
+     * @return int
+     */
+    abstract public function getScore(): int;
 }

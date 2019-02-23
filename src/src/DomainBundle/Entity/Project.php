@@ -6,10 +6,16 @@ use DomainBundle\Entity\DevOps\Pipeline;
 use DomainBundle\Entity\Forum\ForumTopic;
 use DomainBundle\Entity\SCM\Repository;
 
-class Project
+class Project implements Exportable
 {
     /** @var string|null $id */
-    private $id;
+    private $id = '';
+    /** @var string $title */
+    private $title = '';
+    /** @var string $description */
+    private $description = '';
+    /** @var EntityExportHandlerInterface|null $exportHandler */
+    private $exportHandler;
     /** @var Sprint[]|array $sprints */
     private $sprints = [];
     /** @var BacklogComponent[]|array $backlogItems */
@@ -22,6 +28,36 @@ class Project
     private $repositories = [];
     /** @var ForumTopic[]|array $forumTopics */
     private $forumTopics = [];
+    /** @var \DateTime $createdAt */
+    private $createdAt;
+
+    /**
+     * Project constructor.
+     * @param EntityExportHandlerInterface $exportHandler
+     */
+    public function __construct(EntityExportHandlerInterface $exportHandler = null)
+    {
+        $this->exportHandler = $exportHandler;
+        $this->createdAt = new \DateTime();
+    }
+
+    /**
+     * @return EntityExportHandlerInterface|null
+     */
+    public function getExportHandler(): ?EntityExportHandlerInterface
+    {
+        return $this->exportHandler;
+    }
+
+    /**
+     * @param EntityExportHandlerInterface $exportHandler
+     * @return Project
+     */
+    public function setExportHandler(EntityExportHandlerInterface $exportHandler): Project
+    {
+        $this->exportHandler = $exportHandler;
+        return $this;
+    }
 
     /**
      * @return array|Sprint[]
@@ -56,24 +92,6 @@ class Project
     public function setSprints(array $sprints): Project
     {
         $this->sprints = $sprints;
-        return $this;
-    }
-
-    /**
-     * @return array|BacklogComponent[]
-     */
-    public function getBacklogComponents(): array
-    {
-        return $this->backlogItems;
-    }
-
-    /**
-     * @param array|BacklogComponent[] $backlogItems
-     * @return Project
-     */
-    public function setBacklogComponents(array $backlogItems): Project
-    {
-        $this->backlogItems = $backlogItems;
         return $this;
     }
 
@@ -164,6 +182,68 @@ class Project
     public function setForumTopics(array $forumTopics)
     {
         $this->forumTopics = $forumTopics;
+        return $this;
+    }
+
+    /**
+     * Export
+     */
+    public function export(): void
+    {
+        $this->exportHandler->export($this);
+    }
+
+    /**
+     * @return string
+     */
+    public function getTitle(): string
+    {
+        return $this->title;
+    }
+
+    /**
+     * @param string $title
+     * @return Project
+     */
+    public function setTitle(string $title): Project
+    {
+        $this->title = $title;
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getDescription(): string
+    {
+        return $this->description;
+    }
+
+    /**
+     * @param string $description
+     * @return Project
+     */
+    public function setDescription(string $description): Project
+    {
+        $this->description = $description;
+        return $this;
+    }
+
+    /**
+     * @return \DateTime
+     */
+    public function getCreatedAt(): \DateTime
+    {
+        return $this->createdAt;
+    }
+
+    /**
+     * @param \DateTime $createdAt
+     * @return Project
+     */
+    public function setCreatedAt(\DateTime $createdAt): Project
+    {
+        $this->createdAt = $createdAt;
         return $this;
     }
 }

@@ -11,6 +11,5 @@ class PipelineGitCloneTask implements PipelineTaskInterface
      */
     public function execute(): int
     {
-
     }
 }

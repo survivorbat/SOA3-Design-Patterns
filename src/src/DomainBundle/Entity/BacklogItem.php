@@ -41,14 +41,27 @@ class BacklogItem extends BacklogComponent
     /**
      * @return bool
      */
-    public function isFinished(): bool
+    public function canBeFinished(): bool
     {
         foreach ($this->subItems as $subItem) {
             if (!$subItem->isFinished()) {
                 return false;
             }
         }
-
         return true;
+    }
+
+    /**
+     * @return int
+     */
+    public function getScore(): int
+    {
+        $sum = 0;
+
+        foreach ($this->subItems as $subItem) {
+            $sum += $subItem->getScore();
+        }
+
+        return $sum;
     }
 }
