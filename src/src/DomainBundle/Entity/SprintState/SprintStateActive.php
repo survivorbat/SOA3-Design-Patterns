@@ -9,6 +9,14 @@ class SprintStateActive extends SprintState
     /**
      * @param Sprint $sprint
      */
+    public function finish(Sprint $sprint): void
+    {
+        $sprint->setCurrentState(new SprintStateFinished());
+    }
+
+    /**
+     * @param Sprint $sprint
+     */
     public function cancel(Sprint $sprint): void
     {
         $sprint->setCurrentState(new SprintStateCanceled());
