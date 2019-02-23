@@ -12,7 +12,7 @@ class Sprint implements SplSubject, Exportable
     /** @var string $id */
     private $id = '';
     /** @var string $name */
-    private $name;
+    private $name = '';
     /** @var SplObserver[]|array $sprintObservers */
     private $sprintObservers = [];
     /** @var EntityExportHandlerInterface $exportHandler */
@@ -204,5 +204,52 @@ class Sprint implements SplSubject, Exportable
     public function getPrevState(): ?SprintState
     {
         return $this->prevState;
+    }
+    
+    public function start(): void
+    {
+        $this->currentState->start($this);
+    }
+
+    /**
+     * @return void
+     */
+    public function finish(): void
+    {
+        $this->currentState->finish($this);
+    }
+
+    /**
+     * @return void
+     */
+    public function cancel(): void
+    {
+        $this->currentState->cancel($this);
+    }
+
+    /**
+     * @return void
+     */
+    public function close(): void
+    {
+        $this->currentState->close($this);
+    }
+
+    /**
+     * @return array|BacklogComponent[]
+     */
+    public function getBacklogComponents()
+    {
+        return $this->backlogComponents;
+    }
+
+    /**
+     * @param array|BacklogComponent[] $backlogComponents
+     * @return Sprint
+     */
+    public function setBacklogComponents($backlogComponents)
+    {
+        $this->backlogComponents = $backlogComponents;
+        return $this;
     }
 }

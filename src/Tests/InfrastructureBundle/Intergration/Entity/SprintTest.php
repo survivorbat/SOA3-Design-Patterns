@@ -41,7 +41,7 @@ class SprintTest extends TestCase
             ->method('dumpFile')
             ->with(
                 'sprintTestSuffix.json',
-                '{"editable":true,"exportHandler":[],"id":"","name":"Sprint 0","createdAt":{"timezone":{"name":"-04:00","transitions":false,"location":false},"offset":-14400,"timestamp":1503159475},"currentState":{"editable":true,"stateDescription":"Deze sprint is nieuw en nog niet begonnen.","stateTitle":"New"},"prevState":null}'
+                '{"editable":true,"exportHandler":[],"id":"","name":"Sprint 0","createdAt":{"timezone":{"name":"-04:00","transitions":false,"location":false},"offset":-14400,"timestamp":1503159475},"currentState":{"editable":true,"stateDescription":"Deze sprint is nieuw en nog niet begonnen.","stateTitle":"New"},"prevState":null,"backlogComponents":[]}'
             );
 
         $exportHandler = new JsonExportHandler(
@@ -73,8 +73,9 @@ class SprintTest extends TestCase
             ->method('dumpFile')
             ->with(
                 'sprintTestSuffix.xml',
-                "<?xml version=\"1.0\"?>\n<response><editable>1</editable><exportHandler/><id></id><name>Sprint 0</name><createdAt><timezone><name>-04:00</name><transitions>0</transitions><location>0</location></timezone><offset>-14400</offset><timestamp>1503159475</timestamp></createdAt><currentState><editable>1</editable><stateDescription>Deze sprint is nieuw en nog niet begonnen.</stateDescription><stateTitle>New</stateTitle></currentState><prevState/></response>\n"
-            );
+                '<?xml version="1.0"?>
+<response><editable>1</editable><exportHandler/><id></id><name>Sprint 0</name><createdAt><timezone><name>-04:00</name><transitions>0</transitions><location>0</location></timezone><offset>-14400</offset><timestamp>1503159475</timestamp></createdAt><currentState><editable>1</editable><stateDescription>Deze sprint is nieuw en nog niet begonnen.</stateDescription><stateTitle>New</stateTitle></currentState><prevState/><backlogComponents/></response>
+'            );
 
         $exportHandler = new XMLExportHandler(
             $fileSystemMock,
