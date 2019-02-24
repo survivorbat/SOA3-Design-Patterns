@@ -30,17 +30,14 @@ abstract class NotifyHandler implements NotifyHandlerInterface
     {
         // TODO: Implement collect
     }
-
     /**
      * @return void
      */
     abstract protected function composeMessageContent(): void;
-
     /**
      * @return void
      */
     abstract protected function deliverMessage(): void;
-
     /**
      * @return void
      */
