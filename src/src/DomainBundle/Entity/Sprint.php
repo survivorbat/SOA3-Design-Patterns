@@ -208,7 +208,6 @@ class Sprint implements SplSubject, Exportable
     
     public function start(): void
     {
-        $this->prevState = $this->currentState;
         $this->currentState->start($this);
     }
 
@@ -217,7 +216,6 @@ class Sprint implements SplSubject, Exportable
      */
     public function finish(): void
     {
-        $this->prevState = $this->currentState;
         $this->currentState->finish($this);
     }
 
@@ -226,7 +224,6 @@ class Sprint implements SplSubject, Exportable
      */
     public function cancel(): void
     {
-        $this->prevState = $this->currentState;
         $this->currentState->cancel($this);
     }
 
@@ -235,7 +232,6 @@ class Sprint implements SplSubject, Exportable
      */
     public function close(): void
     {
-        $this->prevState = $this->currentState;
         $this->currentState->close($this);
     }
 
