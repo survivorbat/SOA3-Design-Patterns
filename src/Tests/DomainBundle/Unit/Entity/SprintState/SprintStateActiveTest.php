@@ -52,4 +52,13 @@ class SprintStateActiveTest extends TestCase
         $state = new SprintStateActive();
         $this->assertIsString($state->getStateDescription());
     }
+
+    /**
+     * @return void
+     */
+    public function testIfStateTitleIsAString(): void
+    {
+        $state = new SprintStateActive();
+        $this->assertIsString($state->getStateTitle());
+    }
 }

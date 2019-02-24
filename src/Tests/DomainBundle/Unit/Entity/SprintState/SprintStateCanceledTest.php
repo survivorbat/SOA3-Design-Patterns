@@ -20,4 +20,13 @@ class SprintStateCanceledTest extends TestCase
         $state = new SprintStateCanceled();
         $this->assertIsString($state->getStateDescription());
     }
+
+    /**
+     * @return void
+     */
+    public function testIfStateTitleIsAString(): void
+    {
+        $state = new SprintStateCanceled();
+        $this->assertIsString($state->getStateTitle());
+    }
 }

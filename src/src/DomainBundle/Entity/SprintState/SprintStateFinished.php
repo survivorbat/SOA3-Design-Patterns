@@ -43,6 +43,6 @@ class SprintStateFinished extends SprintState
      */
     public function getStateTitle(): string
     {
-        return 'Closed';
+        return 'Finished';
     }
 }

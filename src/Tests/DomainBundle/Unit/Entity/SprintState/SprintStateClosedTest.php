@@ -20,4 +20,13 @@ class SprintStateClosedTest extends TestCase
         $state = new SprintStateClosed();
         $this->assertIsString($state->getStateDescription());
     }
+
+    /**
+     * @return void
+     */
+    public function testIfStateTitleIsAString(): void
+    {
+        $state = new SprintStateClosed();
+        $this->assertIsString($state->getStateTitle());
+    }
 }

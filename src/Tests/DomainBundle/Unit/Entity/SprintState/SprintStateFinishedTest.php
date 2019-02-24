@@ -47,9 +47,34 @@ class SprintStateFinishedTest extends TestCase
     /**
      * @return void
      */
+    public function testIfStartChangesState(): void
+    {
+        $sprint = $this->createMock(Sprint::class);
+
+        $sprint->expects($this->once())
+            ->method('setCurrentState')
+            ->with(new SprintStateActive());
+
+        $state = new SprintStateFinished();
+
+        $state->start($sprint);
+    }
+
+    /**
+     * @return void
+     */
     public function testIfStateDescriptionIsAString(): void
     {
         $state = new SprintStateFinished();
         $this->assertIsString($state->getStateDescription());
+    }
+
+    /**
+     * @return void
+     */
+    public function testIfStateTitleIsAString(): void
+    {
+        $state = new SprintStateFinished();
+        $this->assertIsString($state->getStateTitle());
     }
 }
