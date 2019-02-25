@@ -3,6 +3,7 @@
 namespace Tests\InfrastructureBundle\Intergration\Entity;
 
 use ApplicationServiceBundle\Service\ExportHandler\JSONExportHandler;
+use ApplicationServiceBundle\Service\ExportHandler\RapportExportHandler;
 use ApplicationServiceBundle\Service\ExportHandler\XMLExportHandler;
 use DomainBundle\Entity\Sprint;
 use DomainBundle\Entity\SprintState\SprintStateNew;
@@ -92,6 +93,32 @@ class SprintTest extends TestCase
         $sprint->setName('Sprint 0')
             ->setCreatedAt(new \DateTime('2017-08-19 12:17:55 -0400'));
 
+        $sprint->export();
+    }
+
+    /**
+     * @return void
+     */
+    public function testIfExportFunctionCallsFileSystemAndReturnsBadMethodException(): void
+    {
+        $fileSystemMock = $this->createMock(Filesystem::class);
+
+        $exportHandler = new RapportExportHandler(
+            $fileSystemMock,
+            $this->serializer,
+            'exports',
+            'TestSuffix'
+        );
+
+        $sprint = new Sprint(
+            $exportHandler,
+            new SprintStateNew()
+        );
+
+        $sprint->setName('Sprint 0')
+            ->setCreatedAt(new \DateTime('2017-08-19 12:17:55 -0400'));
+
+        $this->expectException(\BadMethodCallException::class);
         $sprint->export();
     }
 }
