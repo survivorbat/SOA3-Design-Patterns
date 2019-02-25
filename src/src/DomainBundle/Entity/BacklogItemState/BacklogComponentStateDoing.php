@@ -25,4 +25,13 @@ class BacklogComponentStateDoing extends BacklogComponentState
     {
         $backlogComponent->setCurrentState(new BacklogComponentStateTodo());
     }
+
+    /**
+     * @param BacklogComponent $backlogComponent
+     * @return bool
+     */
+    public function canBeFinished(BacklogComponent $backlogComponent): bool
+    {
+        return true;
+    }
 }

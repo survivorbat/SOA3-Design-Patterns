@@ -30,6 +30,7 @@ class Sprint implements SplSubject, Exportable
      * Sprint constructor.
      * @param EntityExportHandlerInterface $exportHandler
      * @param SprintState $initialState
+     * @throws \Exception
      */
     public function __construct(
         EntityExportHandlerInterface $exportHandler,
