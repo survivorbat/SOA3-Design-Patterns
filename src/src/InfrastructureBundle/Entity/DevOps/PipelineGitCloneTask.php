@@ -26,6 +26,8 @@ class PipelineGitCloneTask implements PipelineTaskInterface
     }
 
     /**
+     * Example implementation
+     *
      * @return int
      * @throws \GuzzleHttp\Exception\GuzzleException
      */
