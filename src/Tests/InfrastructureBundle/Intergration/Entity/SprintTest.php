@@ -33,6 +33,7 @@ class SprintTest extends TestCase
 
     /**
      * @return void
+     * @throws \Exception
      */
     public function testIfExportFunctionCallsFileSystemAndReturnsJson(): void
     {
@@ -65,6 +66,7 @@ class SprintTest extends TestCase
 
     /**
      * @return void
+     * @throws \Exception
      */
     public function testIfExportFunctionCallsFileSystemAndReturnsXML(): void
     {
@@ -98,6 +100,7 @@ class SprintTest extends TestCase
 
     /**
      * @return void
+     * @throws \Exception
      */
     public function testIfExportFunctionCallsFileSystemAndReturnsBadMethodException(): void
     {
