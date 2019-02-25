@@ -50,6 +50,7 @@ class Sprint implements SplSubject, Exportable
     {
         $this->prevState = $this->currentState;
         $this->currentState = $sprintState;
+        $this->notify();
         return $this;
     }
 
